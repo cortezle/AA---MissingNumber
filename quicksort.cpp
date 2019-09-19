@@ -5,7 +5,7 @@ void swap(int*a,int*b)
 {
 	int t= *a;
 	*a=*b;
-	*b=*t;
+	*b=t;
 }
 
 int partition(int arr[], int low, int high)
@@ -39,7 +39,7 @@ void quickSort(int arr[],int low, int high)
 void printArray(int arr[],int size)
 {
 	int i;
-	for(i=0;i<size;j++)
+	for(i=0;i<size;i++)
 		cout<<arr[i]<<" ";
 	cout<<endl;
 }
@@ -47,10 +47,24 @@ void printArray(int arr[],int size)
 
 int main()
 {
-	int arr[]={10,7,8,9,1,5};
-	int n=sizeof(arr)/sizeof(arr[0]);
-	quickSort(arr,0,n-1);
-	cout << "Sorted array: \n";
-	printArray(arr,n);
-	return 0;
+    int casos, aux=0;
+    cin >> casos;
+    int arr[casos];
+    while(aux<casos){
+        int n;
+        cin >> n;
+        int A[n];
+        for (int i=0;i<n;i++)
+            cin >> A[i];
+        quickSort(A, 0, n );
+        long long int p=2;int k=2;
+        for(int i=0;i<n;i++)
+        {
+            if(A[i]>=p)
+            p=2*(k++);
+            }
+            cout<<p<<endl;
+            aux+=1;
+    }
+    return 0;
 }
